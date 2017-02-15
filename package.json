@@ -1,0 +1,37 @@
+{
+    "name": "rateflix",
+    "version": "1.0.0",
+    "description": "rate flix",
+    "main": "webpack.config.js",
+    "dependencies": {
+        "babel": "^6.5.2",
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-loader": "^6.2.10",
+        "babel-preset-react": "^6.22.0",
+        "bootstrap-without-jquery": "^1.0.4",
+        "history": "^1.17.0",
+        "react": "^15.4.2",
+        "react-bootstrap": "^0.30.7",
+        "react-dom": "^0.14.6",
+        "react-router": "^3.0.2",
+        "styled-components": "^1.4.0",
+        "supports-color": "^3.2.3",
+        "webpack": "^1.14.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-react-html-attrs": "^2.0.0",
+        "babel-plugin-transform-class-properties": "^6.22.0",
+        "babel-plugin-transform-decorators-legacy": "^1.3.4",
+        "babel-preset-es2015": "^6.22.0",
+        "babel-preset-stage-0": "^6.22.0"
+    },
+    "scripts": {
+        "dev": "webpack-dev-server --content-base src --inline --hot",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Tanos90",
+    "license": "ISC"
+}
