@@ -9,14 +9,13 @@ import Search from '../Components/Search';
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
     }
 
     render() {
         return (
             <div>
-                <h4>Home</h4>
                 <div class="container">
+                    <h4>Home</h4>
                     <hr/>
                     <div class="row">
                         <div class="col-md-8">
@@ -41,7 +40,4 @@ export default class Home extends React.Component {
             </div>
         );
     }
-
-
-
-};
+}

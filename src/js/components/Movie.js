@@ -26,10 +26,8 @@ export default class Movie extends React.Component {
 
     getMoviesByTitle(title) {
         let self = this;
-        console.log(title);
         fetch(`https://www.omdbapi.com/?t=$${title}&plot=short&r=json`)
             .then(function(response) {
-                    console.log(response);
                     response.json()
                         .then(res => { 
                             self.setState({movie: res});
@@ -71,4 +69,4 @@ export default class Movie extends React.Component {
             </div>
         );
     }
-};
+}

@@ -18,4 +18,4 @@ export default class LoadMore extends React.Component {
             </div>
         );
     }
-};
+}

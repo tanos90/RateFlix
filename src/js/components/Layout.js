@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Footer from './Footer';
-import Header from './Header';
+import Navbar from './Navbar';
 
 
 export default class Layout extends React.Component {
@@ -9,9 +9,8 @@ export default class Layout extends React.Component {
     render() {
         return (
             <div>
-                <Header/>
+                <Navbar history={this.props.router}/>
                 {this.props.children}
-                <Footer/>
             </div>
         );
     }

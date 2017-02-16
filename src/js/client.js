@@ -10,12 +10,13 @@ import UserProfile from './Pages/UserProfile';
 
 const app = document.getElementById('app');
 
-const routes = (    <Router history={hashHistory}>
+const routes = (  
+    <Router history={hashHistory}>
         <Route path="/" component={Layout}>
             <IndexRoute component={Home}></IndexRoute>
-            <Route path="about" component={About}/>
+            <Route path="about" name="about" component={About}/>
             <Route path="userprofile" name="userprofile" component={UserProfile}/>
-            <Route path="movie/:title" name="movie" component={Movie}/>
+            <Route path="movie(/:title)" name="movie" component={Movie}/>
         </Route>
     </Router>
 );

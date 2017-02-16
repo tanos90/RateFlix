@@ -29,6 +29,8 @@ export default class Categories extends React.Component {
         };
     }
 
+    onSelect = (e) => { console.log(e);} 
+
     render() {
         const {listCategories} = this.state;
         return (
@@ -54,4 +56,4 @@ export default class Categories extends React.Component {
             </div>
         );
     }
-};
+}
