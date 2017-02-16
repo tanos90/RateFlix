@@ -1,0 +1,10 @@
+[
+    {
+        "title" : "About",
+        "route": "about"
+    },
+    {
+        "title" : "Movie",
+        "route": "movie"
+    }
+]
