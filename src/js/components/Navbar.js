@@ -32,6 +32,14 @@ export default class Navbar extends React.Component {
 
         const navClass = collapsed ? "collapse" : "";
 
+        const menuOptions = menus.map((menu) => 
+            <li className= { this.isActive(location.pathname,menu.route) ? "active" : ""}
+                    key={menu.title}>
+                <Link to={menu.route}> {menu.title} 
+                </Link>
+            </li>
+        );
+        
         return ( 
             <Wrapper>
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -47,16 +55,7 @@ export default class Navbar extends React.Component {
                     </div>
                     <div class={"navbar-collapse " + navClass } id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            { 
-                                menus
-                                    .map(menu => 
-                                        <li className= { this.isActive(location.pathname,menu.route) ? "active" : ""}
-                                             key={menu.title}>
-                                            <Link to={menu.route}> {menu.title} 
-                                            </Link>
-                                        </li>
-                                    )
-                            }
+                            {menuOptions}
                         </ul> 
                         <ul class ="nav navbar-nav navbar-right">
                             <li>
