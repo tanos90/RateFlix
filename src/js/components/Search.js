@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, browserHistory, Router } from 'react-router';
+import * as MediaActions from "../actions/MediaActions";
 
 export default class Search extends React.Component {
     constructor(props) {
@@ -11,14 +12,21 @@ export default class Search extends React.Component {
 
     navigate(e) {
         const {value} = e.target;
-        this.props.history.push(`movie/${value}`);
+        this.getMovieByTitle(value);     
+    }
+
+    getMovieByTitle(title) {
+        MediaActions.getMediaByText(title);
     }
 
     render() {
+        const style = {
+            "max-width":"500px"
+        };
         return (
-            <div class="well">
+            <div>
                 <h4>Movie By Title</h4>
-                <div class="input-group">
+                <div class="input-group" style={style}>
                     <input type="text" class="form-control" onBlur = { this.navigate.bind(this) }/>
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
@@ -28,5 +36,7 @@ export default class Search extends React.Component {
                 </div>
             </div>
         );
+
+
     }
-};
+}

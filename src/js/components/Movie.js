@@ -1,67 +1,34 @@
 import React from 'react';
-
+import styled from 'styled-components';
 
 export default class Movie extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            movie: {
-                Title :"",
-                Year : "",
-                Released : "",
-                Metascore : "" 
-            }
-        };
 
     }
 
 
-    componentWillMount() {
-        let self = this;
-        const {params} = self.props;
-        const {title} = params;
-        self.getMoviesByTitle(title);
-    }
-
-
-    getMoviesByTitle(title) {
-        let self = this;
-        fetch(`https://www.omdbapi.com/?t=$${title}&plot=short&r=json`)
-            .then(function(response) {
-                    response.json()
-                        .then(res => { 
-                            self.setState({movie: res});
-                        });
-                });
-    }
 
     render() {      
-        const {movie} = this.state;
+        const {movie} = this.props;
         return (
-            <div class="well">
+            <div>
             {
                 
                 <div key={movie.Title}>
-                    <h1 class="page-header">
-                        {movie.Title}
-                        <small>  {movie.Year}</small>
-                    </h1>
-                    <p class="lead">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        {movie.Metascore / 10}/10 Score
-                        <a href="index.php">{}</a>
-                    </p>
-                    <p>
-                        <span class="glyphicon glyphicon-calendar" style={{marginRight: .5 + 'em'}}> </span>
-                         Release on {movie.Released}</p>
-                    <hr/>
-                    <img class="img-responsive" src={movie.Poster} alt=""/>
-                    <hr/>
-                    <p>{movie.Plot}</p>
-                    <a class="btn btn-primary" href="#">Read More
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <hr/>
+                    <div class="container-fluid">
+                        <Image class="col-md-1" src={movie.Poster} alt="" />
+                        <div class= "col-md-4"><h2>{movie.Title}</h2>
+                            <h3>{movie.Year}</h3> 
+                            <h3>{movie.Metascore / 10}/10 Score</h3>  
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <p>
+                            <span class="glyphicon glyphicon-calendar" style={{marginRight: .5 + 'em'}}> </span>
+                            Release on {movie.Released}</p>
+                        <p>{movie.Plot}</p>
+                    </div>
                 </div>
             }
 
@@ -70,3 +37,8 @@ export default class Movie extends React.Component {
         );
     }
 }
+
+const Image = styled.img`
+  width : 15%;
+  margin: 5px;
+`;

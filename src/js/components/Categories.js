@@ -18,41 +18,39 @@ export default class Categories extends React.Component {
     constructor() {
         super();
         this.state = {
-            listCategories: [
+            categories: [
                 {
                     name: "Test"
                 }, {
                     name: "Test2"
                 }
-            ],
-            categories: []
+            ]
         };
     }
 
     onSelect = (e) => { console.log(e);} 
 
+    
     render() {
-        const {listCategories} = this.state;
+        const {categories} = this.state;
+
+        let listCategories = categories.map(category => 
+                                    <li className={category.name === this.selection ? 'selected' : ''}
+                                        key={category.name}
+                                        onClick={() => this.onSelect(category.name)}>
+                                        <StyledLink>{category.name}</StyledLink>
+                                    </li>)
         return (
             <div class="well">
                 <h4>Categories</h4>
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="list-unstyled">
-                            {listCategories
-                                .map(category => <li
-                                    className={category.name === this.selection
-                                    ? 'selected'
-                                    : ''}
-                                    key={category.name}
-                                    onClick={() => this.onSelect(category.name)}>
-                                    <StyledLink>{category.name}</StyledLink>
-                                </li>)}
+                            {listCategories}
                         </ul>
                     </div>
                     <div class="col-lg-6"></div>
                 </div>
-
             </div>
         );
     }

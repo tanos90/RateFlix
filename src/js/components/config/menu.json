@@ -4,7 +4,10 @@
         "route": "about"
     },
     {
-        "title" : "Movie",
-        "route": "movie"
+        "title" : "My reviews",
+        "route": "myReviews",
+        "routeName": "myReviews",
+        "component": "MyReviews",
+        "path":"myReviews"
     }
 ]

@@ -76,39 +76,16 @@ export default class Navbar extends React.Component {
 const Button = styled.button `
   background: red;
   color: white;
-  font-size: 1.5em;
+  font-size: .5em;
   margin: .2em;
   padding: 0.1em .25em;
   border: 2px solid white;
   border-radius: 3px;
   position:relative; 
-  height: 40px;
 `;
 
 const Wrapper = styled.header `
   padding: 5px;
-`;
-
-
-const SearchInput = styled.input `
-  font-size: 1em;
-  padding: 0.5em;
-  margin: 0.5em;
-  color: palevioletred;
-  background: papayawhip;
-  border: none;
-  border-radius: 1px;
-  float: right;
-  &:hover {
-    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
-  }
-`;
-
-const Title = styled.h1 `
-  font-size: 1.5em;
-  color: white;
-  float: right;
-  margin-right: 10px;
 `;
 
 const StyledLink = styled(Link)`

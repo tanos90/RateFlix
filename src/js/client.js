@@ -2,13 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory} from "react-router";
 
+//Components
 import About from './Pages/About';
 import Home from './Pages/Home';
 import Layout from './components/Layout';
+import MyReviews from './components/MyReviews';
 import Movie from './components/Movie';
 import UserProfile from './Pages/UserProfile';
+import menu from './components/config/menu.json';
 
 const app = document.getElementById('app');
+
+const componentRegistry = {
+    "Movie": Movie,
+    "MyReviews": MyReviews
+}
+
+const routesFromConfig = menu.map( (menu) => 
+        <Route key={menu.route} path={menu.path} name={menu.routeName}  components={componentRegistry[menu.component]}/>
+);
 
 const routes = (  
     <Router history={hashHistory}>
@@ -16,7 +28,7 @@ const routes = (
             <IndexRoute component={Home}></IndexRoute>
             <Route path="about" name="about" component={About}/>
             <Route path="userprofile" name="userprofile" component={UserProfile}/>
-            <Route path="movie(/:title)" name="movie" component={Movie}/>
+            {routesFromConfig}
         </Route>
     </Router>
 );
